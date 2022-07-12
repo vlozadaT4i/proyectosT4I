@@ -11,7 +11,6 @@ eureka:
 spring:
   application:
     zipkin: http://192.168.2.186:9411
-spring:
   datasource:
     url: jdbc:oracle:thin:@192.168.2.247:1521/ORCLPDB
     username: MONITOR_DB
