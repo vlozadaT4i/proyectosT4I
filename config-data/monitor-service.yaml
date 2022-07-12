@@ -1,5 +1,13 @@
 server:
   port: 7073
+eureka:
+  cliente:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+    instance:
+      hostname: localhost
 spring:
   datasource:
     url: jdbc:oracle:thin:@192.168.2.247:1521/ORCLPDB

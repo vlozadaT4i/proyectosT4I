@@ -1,0 +1,6 @@
+server:
+  port: 7073
+eureka:
+  cliente:
+    fetch-registry: false
+    register-with-eureka: false
