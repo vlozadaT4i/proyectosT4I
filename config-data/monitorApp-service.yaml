@@ -14,3 +14,11 @@ spring:
     username: MONITOR_DB
     password: MONITORDB
     driver-class-name: oracle.jdbc.OracleDriver
+t4i:
+  sas:
+    bic:
+      app:
+        formatoFecha: dd/MM/yyyy
+        generar:
+          log:
+            id: 0
