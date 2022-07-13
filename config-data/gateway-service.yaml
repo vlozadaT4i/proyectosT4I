@@ -21,6 +21,8 @@ spring:
           uri: lb://monitor-service
           predicates:
             - Path=/rest/monitor/motor/**
+          filters:
+            - AuthFilter
         - id: auth-service
           uri: lb://auth-service
           predicates:
