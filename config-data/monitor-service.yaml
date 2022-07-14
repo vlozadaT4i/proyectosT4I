@@ -16,6 +16,16 @@ spring:
     username: MONITOR_DB
     password: MONITORDB
     driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    show-sql: true
+    hibernate: 
+      ddl-auto: none
+    generate-ddl: false
+    properties: 
+      hibernate:
+        proc:
+          param_null_passing: true
+    database-platform: org.hibernate.dialect.Oracle12cDialect
 t4i:
   sas:
     bic:
