@@ -13,8 +13,8 @@ spring:
     zipkin: http://192.168.2.186:9411
   datasource:
     url: jdbc:oracle:thin:@192.168.2.247:1521/ORCLPDB
-    username: MONITOR_DB
-    password: MONITORDB
+    username: GCIP
+    password: GCIP
     driver-class-name: oracle.jdbc.OracleDriver
 t4i:
   sas:
