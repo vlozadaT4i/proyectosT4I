@@ -27,3 +27,9 @@ spring:
           uri: lb://auth-service
           predicates:
             - Path=/auth/**
+
+t4i:
+  sas:
+    bic:
+      app:
+        validate-token: http://auth-service/auth/validate?token=
