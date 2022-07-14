@@ -8,6 +8,7 @@ eureka:
     service-url:
       default-zone: http://localhost:8761/eureka
   instance:
+    prefer-ip-address: true
     hostname: localhost
 
 spring:
@@ -20,13 +21,15 @@ spring:
         - id: monitor-service
           uri: lb://monitor-service
           predicates:
-            - Path=/rest/monitor/motor/**
+            - Path=/monitor/motor/**
           filters:
-            - AuthFilter
+            - JwtAuthenticationFilter
         - id: auth-service
           uri: lb://auth-service
           predicates:
             - Path=/auth/**
+  jackson: 
+    default-property-inclusion: NON_NULL
 
 t4i:
   sas:

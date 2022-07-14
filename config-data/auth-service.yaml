@@ -34,4 +34,4 @@ t4i:
         generar:
           log:
             id: 0
-        expire-token: 600000
+        expire-token: 180000
