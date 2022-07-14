@@ -23,7 +23,7 @@ spring:
           predicates:
             - Path=/monitor/motor/**
           filters:
-            - JwtAuthenticationFilter
+            - AuthFilter
         - id: auth-service
           uri: lb://auth-service
           predicates:
