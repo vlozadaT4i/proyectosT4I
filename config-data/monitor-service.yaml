@@ -9,8 +9,8 @@ eureka:
     instance:
       instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 spring:
-  application:
-    zipkin: http://192.168.2.186:9411
+  zipkin:
+    baseUrl: http://192.168.2.186:9411/zipkin/
   datasource:
     url: jdbc:oracle:thin:@192.168.2.247:1521/ORCLPDB
     username: MONITOR_DB
