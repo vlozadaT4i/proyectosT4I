@@ -35,3 +35,7 @@ t4i:
           log:
             id: 0
         expire-token: 180000
+admin-paths:
+  paths:
+    - uri: "/auth/create"
+      method: "POST"
