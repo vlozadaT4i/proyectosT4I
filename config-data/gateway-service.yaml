@@ -9,7 +9,6 @@ eureka:
       default-zone: http://192.168.2.117:8761/eureka
   instance:
     preferIpAddress: true
-    hostname: 192.168.2.117
 
 spring:
   cloud:
