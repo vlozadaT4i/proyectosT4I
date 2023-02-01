@@ -8,7 +8,7 @@ eureka:
     service-url:
       default-zone: http://localhost:8761/eureka
   instance:
-    preferIpAddress: true
+    hostname: localhost
 
 spring:
   cloud:
@@ -37,7 +37,7 @@ spring:
         - id: auth-service
           uri: lb://auth-service
           predicates:
-            - Path=/auth/**, /api/auth/**, /rest/auth/**
+            - Path=/auth/**, /api/auth/**, /rest/auth/**, /auth-service/**
         - id: monitor-service
           uri: lb://monitor-service
           predicates:

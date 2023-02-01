@@ -8,6 +8,7 @@ eureka:
       default-zone: http://localhost:8761/eureka
     instance:
       instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+      hostname: localhost
 spring:
   datasource:
     url: jdbc:oracle:thin:@192.168.2.247:1521/ORCLPDB
