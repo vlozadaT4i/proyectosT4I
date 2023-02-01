@@ -24,9 +24,6 @@ spring:
             allowedOrigins: "*"
             allowedHeaders: "*"
             allowedMethods: "*"
-      discovery:
-        locator:
-          enabled: true
       routes:
         - id: monitor-motor-service
           uri: lb://monitor-motor-service
@@ -37,7 +34,7 @@ spring:
         - id: auth-service
           uri: lb://auth-service
           predicates:
-            - Path=/auth/**, /api/auth/**, /rest/auth/**, /auth-service/**
+            - Path=/auth/**, /api/auth/**, /rest/auth/**
         - id: monitor-service
           uri: lb://monitor-service
           predicates:
