@@ -24,3 +24,6 @@ t4i:
         generar:
           log:
             id: 0
+        aespss: t4isasbic2022#
+        aessalt: "%t4i5a17#"
+        aesiv: "[t4iv11nm0n1t0r]"

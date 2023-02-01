@@ -1,12 +1,12 @@
 server:
-  port: 8080
+  port: 8090
   
 eureka:
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      default-zone: http://192.168.2.117:8761/eureka
+      default-zone: http://localhost:8761/eureka
   instance:
     preferIpAddress: true
 
@@ -16,17 +16,40 @@ spring:
       discovery:
         locator:
           enabled: true
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods: "*"
+      discovery:
+        locator:
+          enabled: true
       routes:
-        - id: monitor-service
-          uri: lb://monitor-service
+        - id: monitor-motor-service
+          uri: lb://monitor-motor-service
           predicates:
-            - Path=/monitor/motor/**
+            - Path=/monitor/motor/**, /api/monitor/motor/**, /rest/monitor/motor/**
           filters:
             - AuthFilter
         - id: auth-service
           uri: lb://auth-service
           predicates:
-            - Path=/auth/**
+            - Path=/auth/**, /api/auth/**, /rest/auth/**
+        - id: monitor-service
+          uri: lb://monitor-service
+          predicates:
+            - Path=/monitor/dashboard/**, /api/monitor/dashboard/**, /rest/monitor/dashboard/**
+          filters:
+            - AuthFilter
+        - id: transversal-service
+          uri: lb://transversal-service
+          predicates:
+            - Path=/generales/**, /api/generales/**, /rest/generales/** 
+          filters:
+            - AuthFilter
   jackson: 
     default-property-inclusion: NON_NULL
 

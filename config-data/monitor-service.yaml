@@ -5,12 +5,10 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      default-zone: http://192.168.2.117:8761/eureka
+      default-zone: http://localhost:8761/eureka
     instance:
       instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 spring:
-  zipkin:
-    baseUrl: http://192.168.2.186:9411
   datasource:
     url: jdbc:oracle:thin:@192.168.2.247:1521/ORCLPDB
     username: MONITOR_DB
@@ -34,3 +32,6 @@ t4i:
         generar:
           log:
             id: 0
+        aespss: t4isasbic2022#
+        aessalt: "%t4i5a17#"
+        aesiv: "[t4iv11nm0n1t0r]"
