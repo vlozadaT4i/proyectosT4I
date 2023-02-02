@@ -1,0 +1,56 @@
+server:
+  port: ${PORT:${SERVER_PORT:0}}
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@192.168.2.247:1521/ORCLPDB
+    username: T4I_GENERAL
+    password: T4I_GENERAL
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    show-sql: false
+    hibernate: 
+      ddl-auto: none
+    generate-ddl: false
+    properties: 
+      hibernate:
+        proc:
+          param_null_passing: true
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  main:
+    allow-bean-definition-overriding: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 25MB
+      max-request-size: 215MB
+    session:
+      timeout: 30m
+  thymeleaf:
+    cache: false
+t4i:
+  sas:
+    bic:
+      app:
+        formatoFecha: dd/MM/yyyy
+        generar:
+          log:
+            id: 0
+        aespss: t4isasbic2022#
+        aessalt: "%t4i5a17#"
+        aesiv: "[t4iv11nm0n1t0r]"
+        expire-token: 18000000
