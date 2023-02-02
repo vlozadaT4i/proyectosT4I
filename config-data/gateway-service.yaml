@@ -6,7 +6,7 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      default-zone: http://192.168.1.12:8761/eureka
+      default-zone: ${EUREKA_URI:http://localhost:8761/eureka}
   instance:
     preferIpAddress: true
 
@@ -25,28 +25,64 @@ spring:
             allowedHeaders: "*"
             allowedMethods: "*"
       routes:
-        - id: monitor-motor-service
-          uri: lb://monitor-motor-service
-          predicates:
-            - Path=/monitor/motor/**, /api/monitor/motor/**, /rest/monitor/motor/**
-          filters:
-            - AuthFilter
         - id: auth-service
           uri: lb://auth-service
           predicates:
             - Path=/auth/**, /api/auth/**, /rest/auth/**
           filters:
             - AuthFilter
+        - id: transversal-service
+          uri: lb://transversal-service
+          predicates:
+            - Path=/generales/**, /api/generales/**, /rest/generales/** 
+          filters:
+            - AuthFilter
+        - id: monitor-motor-service
+          uri: lb://monitor-motor-service
+          predicates:
+            - Path=/monitor/motor/**, /api/monitor/motor/**, /rest/monitor/motor/**
+          filters:
+            - AuthFilter       
         - id: monitor-service
           uri: lb://monitor-service
           predicates:
             - Path=/monitor/dashboard/**, /api/monitor/dashboard/**, /rest/monitor/dashboard/**
           filters:
-            - AuthFilter
-        - id: transversal-service
-          uri: lb://transversal-service
+            - AuthFilter      
+        - id: forestal-service
+          uri: lb://forestal-service
           predicates:
-            - Path=/generales/**, /api/generales/**, /rest/generales/** 
+            - Path=/forestal/**, /api/forestal/**, /rest/forestal/** 
+          filters:
+            - AuthFilter
+        - id: valorizacion-service
+          uri: lb://valorizacion-service
+          predicates:
+            - Path=/valorizacion/**, /api/valorizacion/**, /rest/valorizacion/**
+          filters:
+            - AuthFilter
+        - id: almacen-service
+          uri: lb://almacen-service
+          predicates:
+            - Path=/almacen/**, /api/almacen/**, /rest/almacen/** 
+          filters:
+            - AuthFilter
+        - id: reporteador-service
+          uri: lb://reporteador-service
+          predicates:
+            - Path=/reporteador/**, /api/reporteador/**, /rest/reporteador/** 
+          filters:
+            - AuthFilter
+        - id: proyectos-service
+          uri: lb://proyectos-service
+          predicates:
+            - Path=/proyectos/**, /api/proyectos/**, /rest/proyectos/** 
+          filters:
+            - AuthFilter
+        - id: lims-service
+          uri: lb://lims-service
+          predicates:
+            - Path=/laboratorio/**, /api/laboratorio/**, /rest/laboratorio/** 
           filters:
             - AuthFilter
   jackson: 

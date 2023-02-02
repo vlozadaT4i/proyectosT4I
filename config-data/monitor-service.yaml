@@ -5,10 +5,10 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      default-zone: http://localhost:8761/eureka
+      default-zone: ${EUREKA_URI:http://localhost:8761/eureka}
     instance:
       instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-      hostname: localhost
+      preferIpAddress: true
 spring:
   datasource:
     url: jdbc:oracle:thin:@192.168.2.247:1521/ORCLPDB
