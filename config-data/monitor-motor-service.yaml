@@ -1,21 +1,31 @@
 server:
   port: ${PORT:${SERVER_PORT:0}}
 eureka:
-  cliente:
+  client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      default-zone: http://192.168.2.117:8761/eureka
+      default-zone: ${EUREKA_URI:http://localhost:8761/eureka}
     instance:
       instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+      preferIpAddress: true
 spring:
-  application:
-    zipkin: http://192.168.2.186:9411
   datasource:
     url: jdbc:oracle:thin:@192.168.2.247:1521/ORCLPDB
     username: MONITOR_DB
     password: MONITORDB
     driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    show-sql: false
+    hibernate: 
+      ddl-auto: none
+    generate-ddl: false
+    properties: 
+      hibernate:
+        proc:
+          param_null_passing: true
+        enable_lazy_load_no_trans: true
+    database-platform: org.hibernate.dialect.Oracle12cDialect
 t4i:
   sas:
     bic:
